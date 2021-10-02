@@ -3,4 +3,4 @@ notes_project/settings.py
 notes_project/__pycache__/*
 notes/__pycache__/*
 notes/migrations/*
-notes/spatiam-dtn-cloud-vision-c58c7320b237.json
+notes/notes/cred.json
