@@ -107,13 +107,13 @@ class User(AbstractBaseUser):
 
 class Entry(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
     date_modified = models.DateTimeField(auto_now=True)
     date_published = models.DateTimeField(auto_now_add=True)
     message = models.CharField(max_length=1000, blank=True)
-    image = models.CharField(max_length=1000, blank=True)
+    image = models.CharField(max_length=1000, blank=True, null=True)
     log = models.ForeignKey('Log', blank=True, null=True, on_delete=models.CASCADE)
-    tags = models.CharField(max_length=1000, blank=True)
+    tags = models.CharField(max_length=1000, blank=True, null=True)
 
 class Log(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

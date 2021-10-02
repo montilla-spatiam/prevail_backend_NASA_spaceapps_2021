@@ -47,6 +47,17 @@ class LogViewSet(viewsets.ModelViewSet):
     ]
     permission_classes = [IsAuthenticated]
 
+    @action(methods=['get'], detail=True, permission_classes=[IsAuthenticated], url_path='add_user', url_name='get_uuid')
+    def add_user(self, request, pk=None):
+        log = models.Log.objects.get(id=pk)
+        user = request.user
+
+        log.users.add(user)
+        user.logs.add(log)
+
+        serializer = serializers.SimpleLogSerializer(log)
+        return HttpResponse(JSONRenderer().render(serializer.data), content_type='application/json')
+
 class EntryViewSet(viewsets.ModelViewSet):
     queryset = models.Entry.objects.all()
     serializer_class = serializers.EntrySerializer

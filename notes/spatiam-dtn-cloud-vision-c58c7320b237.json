@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "spatiam-dtn-cloud-vision",
+  "private_key_id": "c58c7320b2376bdf106bbc78c16aa41a0ddf8b45",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDmCANBXYFUWlsa\n+9pLxFtQNfLR4qsF8WE7bqvODW+4I7MOW7wIGp63IPh1WDPJTruXFDgA273p4tzi\nCtfwjuwviUwLyVBuHmv7YxW0qQsLhnEzwyjb1X011++w7VxG0zJwosY44N/0GVes\nuTGb0sQh2oF2cdBSgXO2VplKObGVgr9SVmGDzDPn790D2iTbxGsQxujhNfKpGb+S\n4L9yhSqJTD/6n7MgBhYBhfvbkyZjTkdb4wOJ1fWd86KojCl04g9SAoy5NwbPU4eB\njLrL1uk1Uvxb10PeEnkCvJ1AjSw3nziWd4dePAnp64O15+UafvsI2tHpx0LM7gK8\nc4ConAJFAgMBAAECggEALznv6SiYV8ghMj4IyEts79/TlXGy6QpwivIixbAOgsCZ\nj1YYGZXVhgV33SeZojfO3aqiANMcf3s7HBFb2iCNrwjCGx1erO0EAF2MZEXcZaZZ\ncWYc6l0/UqGdrTZeHpBXp7ZTefP5JrVZQbXX0IUKDWU99SJSwc2gAwxudkW4Btio\nXLaAbDyqAvX3cD8oVdkK4xe4Sz0Otte9XFmqN7tTe7iMaDhSHVeG5FkMTw1Th3jE\nDG4owlf4aQha37mbXYyAIAokGy8fWHzLDDy1YO2Od3pRTzCEHk3sxp/eJbrBrkHm\nFzzxaWlxI6G/6RrfGF5JJ03a7Ea4b4rTuuCocQHdoQKBgQD6GHvEqTWHp8E7kCq/\nNcC/itQYaYizbBxXIhTNGtaeuB21n1gdx0FXbDPbuzALoMKLamvoykmOVj8GybTQ\nO4gmmb5fiPEyPMtoZQCLTTZTWKraHc2JPJElqBPPlw78iUYWjvipBxkft2ykUzel\nHjfmBTEYzEAKdA7lOnjjf3K//QKBgQDrdkPr0X4HacsTuGWoo+oL6IgbZOj4xDOl\n+GDROqMgUTDSOT8hGho5vlLkoQzsSEbUaEzTAlrwhHEzPixbUGAsyTHZ8SONw3vl\neuKSl0lmJKM/fsnBp7AcJezO2XD0gjvm2shuYeOag2q7fEh56o6N5ZAltydtgHq+\n88S0wobp6QKBgDqXpdeLNQlVGgZUXk9xzniRk+MsRmSSvYkEaQ8sbH++7ubwL/q6\nBervZK7kCfuPbESxaBqf2d/JAPccJopqiBlTB7DmKmv0pksM7rW0Hzgjm9OCC/dN\nA0xpNkr6Pv6XQp5iXIttKEuv83oELRM4Iyx2puwCXjaUvjCiJFRYNZAZAoGAcDUA\nsx03INNCilhCYbYTL6+VRPC2sO3W6w3NHYgC+sCWMmhDdEPbIY9YM0moPeVHk6tM\niPXDXoDO7SuAudc4rb8HOaPXXJQ+s6H23QKpYLqu7PA/t0BxBUjxa7VlRa/WWfIC\nt8+ARj7AGy5j321ul6JBKif46w7h76N9JuLYphkCgYBv+RhBZ/qo4c3JhEkSaO4/\n3TvY9sah5VuniVx6SMiHXUTarFiPDG41aNlVZm1OZrld/xwfNrwICm7NQ/YCCd5x\nF0i3DzjPFz93VvOrLCjGOi11K/QCHkD76avG2CT95TuUtWXHIh12bXnyi+VXvNGh\nPytF5OW9pb3LGlzJqCFPXA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "spatiam-dtn-cloud-vision@spatiam-dtn-cloud-vision.iam.gserviceaccount.com",
+  "client_id": "114402001404461014484",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/spatiam-dtn-cloud-vision%40spatiam-dtn-cloud-vision.iam.gserviceaccount.com"
+}
