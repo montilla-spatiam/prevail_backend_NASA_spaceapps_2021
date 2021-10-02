@@ -31,13 +31,29 @@ class NoteDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Note.objects.all()
     serializer_class = serializers.NoteSerializer
 
-class LogList(generics.ListCreateAPIView):
+class LogListViewSet(generics.ListCreateAPIView):
     queryset = models.Log.objects.all().order_by('-date_modified' , '-date_published')
     serializer_class = serializers.LogSerializer
+    authentication_classes = [
+        TokenAuthentication,
+    ]
+    permission_classes = [IsAuthenticated]
 
-class LogDetail(generics.RetrieveUpdateDestroyAPIView):
+class LogViewSet(viewsets.ModelViewSet):
     queryset = models.Log.objects.all()
     serializer_class = serializers.LogSerializer
+    authentication_classes = [
+        TokenAuthentication,
+    ]
+    permission_classes = [IsAuthenticated]
+
+class EntryViewSet(viewsets.ModelViewSet):
+    queryset = models.Entry.objects.all()
+    serializer_class = serializers.EntrySerializer
+    authentication_classes = [
+        TokenAuthentication,
+    ]
+    permission_classes = [IsAuthenticated]
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()

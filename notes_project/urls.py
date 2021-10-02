@@ -22,13 +22,18 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet, 'users')
+router.register(r'logs', views.LogViewSet, 'logs')
+router.register(r'entries', views.EntryViewSet, 'entries')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', obtain_auth_token),
     path('register/', views.RegisterView.as_view({'get': 'register'}), name='register'),
+
     path('api/v1/notes/', include('notes.urls')),
+
+    path('api/loglist/', views.LogListViewSet.as_view()),
+
     path('api/', include(router.urls)),
-    path('logs', views.LogList.as_view()),
-    path('logs/<int:pk>/', views.LogDetail.as_view()), #api/v1/notes/1
+    #path('logs/<int:pk>/', views.LogViewSet.as_view()), #api/v1/notes/1
 ]

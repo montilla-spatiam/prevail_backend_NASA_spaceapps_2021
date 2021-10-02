@@ -6,6 +6,8 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 import uuid
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class Note(models.Model):
     title = models.CharField(max_length=150)
@@ -59,11 +61,11 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
-  
-    username = models.CharField(unique=True,max_length=30)
+    username = models.CharField(primary_key=True,max_length=30)
     is_active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False) # a admin user; non super-user
     admin = models.BooleanField(default=False) # a superuser
+    logs = models.ManyToManyField('Log', related_name='user_logs', blank=True)
 
     objects = UserManager()
 
@@ -104,15 +106,17 @@ class User(AbstractBaseUser):
 
 
 class Entry(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     date_modified = models.DateTimeField(auto_now=True)
     date_published = models.DateTimeField(auto_now_add=True)
     message = models.CharField(max_length=1000, blank=True)
     image = models.CharField(max_length=1000, blank=True)
     log = models.ForeignKey('Log', blank=True, null=True, on_delete=models.CASCADE)
+    tags = models.CharField(max_length=1000, blank=True)
 
 class Log(models.Model):
-    uuid = models.CharField(max_length=40, unique=True, default=uuid.uuid4)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     description = models.CharField(max_length=1000, blank=True)
     users = models.ManyToManyField(User, related_name='users', blank=True)
     entries = models.ManyToManyField(Entry, related_name='entries', blank=True)
