@@ -3,4 +3,4 @@ notes_project/settings.py
 notes_project/__pycache__/*
 notes/__pycache__/*
 notes/migrations/*
-notes/notes/cred.json
+notes/cred.json
