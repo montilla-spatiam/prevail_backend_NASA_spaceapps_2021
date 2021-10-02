@@ -76,7 +76,7 @@ class LogConsumer(WebsocketConsumer):
     content = text_data_json['content']
     id = text_data_json['id']
 
-    note = models.Note.objects.get(pk=id)
+    note = models.Log.objects.get(pk=id)
     note.title = title 
     note.content = content
     note.save()
