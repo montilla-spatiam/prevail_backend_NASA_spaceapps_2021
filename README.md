@@ -1,1 +1,2 @@
-# prevail_backend_NASA_spaceapps_2021
+# django-react
+Django 2 &amp; React: Build a Realtime web app source code
