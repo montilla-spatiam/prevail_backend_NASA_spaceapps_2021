@@ -114,11 +114,16 @@ class Entry(models.Model):
     image = models.CharField(max_length=1000, blank=True, null=True)
     log = models.ForeignKey('Log', blank=True, null=True, on_delete=models.CASCADE)
     tags = models.CharField(max_length=1000, blank=True, null=True)
-    data = models.CharField(max_length=1000, blank=True, null=True)
+    raw_data = models.CharField(max_length=1000, blank=True, null=True)
+    entry_data = models.ForeignKey('EntryData', blank=True, null=True, on_delete=models.CASCADE)
     data_visibility = models.BooleanField(blank=True, default=False)
 
-    def delete(self):
-        super(Entry, self).delete()
+class EntryData(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    external_temperature = models.CharField(max_length=1000, blank=True, null=True)
+    suit_pressure = models.CharField(max_length=1000, blank=True, null=True)
+    selenographic_coordinates = models.CharField(max_length=1000, blank=True, null=True)
+    heart_rate = models.CharField(max_length=1000, blank=True, null=True)
 
 class Log(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

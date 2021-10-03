@@ -10,7 +10,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import action
 from .permissions import IsPOST
 from django.http import HttpResponse
-from .models import User
+from .models import Entry, User
 from .serializers import UserSerializer
 from . import models
 from . import serializers
@@ -65,6 +65,15 @@ class EntryViewSet(viewsets.ModelViewSet):
         TokenAuthentication,
     ]
     permission_classes = [IsAuthenticated]
+
+    @action(methods=['get'], detail=True, permission_classes=[IsAuthenticated], url_path='toggle_data_visibility', url_name='toggle_data_visibility')
+    def toggle_data_visibility(self, request, pk=None):
+        entry = models.Entry.objects.get(id=pk)
+        entry.data_visibility = not entry.data_visibility
+        entry.save()
+
+        serializer = serializers.EntrySerializer(entry)
+        return HttpResponse(JSONRenderer().render(serializer.data), content_type='application/json')
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()

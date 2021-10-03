@@ -6,6 +6,7 @@ from rest_framework.authtoken.models import Token
 from . import models
 from google.cloud import vision
 import os
+import json
 
 
 class NoteSerializer(serializers.ModelSerializer):
@@ -13,16 +14,28 @@ class NoteSerializer(serializers.ModelSerializer):
         model = models.Note
         fields = '__all__'
 
+class EntryDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.EntryData
+        fields = '__all__'
 
 class EntrySerializer(serializers.ModelSerializer):
+
+    entry_data = EntryDataSerializer(required=False, allow_null=True)
+
     class Meta:
         model = models.Entry
-        fields = '__all__'
+        fields = ('id', 'user', 'date_modified', 'date_published',
+                  'message', 'image', 'log', 'tags', 'raw_data', 'entry_data', 'data_visibility')
 
     def create(self, validated_data):
         message = validated_data.get('message')
         image = validated_data.get('image')
         tags = validated_data.get('tags')
+        entry_data = None
+        if validated_data.get('raw_data'):
+            raw_data = json.loads(validated_data.get('raw_data'))
+            entry_data = models.EntryData.objects.create(**raw_data)
         if(image):
             if tags :
                 tags = detect_labels_uri(image) + ', ' + tags
@@ -32,7 +45,7 @@ class EntrySerializer(serializers.ModelSerializer):
         user = validated_data.get('user')
         log = validated_data.get('log')
 
-        entry = models.Entry.objects.create(message=message, image=image, tags=tags, user=user, log=log)
+        entry = models.Entry.objects.create(message=message, image=image, tags=tags, user=user, log=log, raw_data="", entry_data=entry_data)
 
         log.entries.add(entry)
 
