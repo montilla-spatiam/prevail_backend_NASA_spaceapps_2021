@@ -28,7 +28,7 @@ router.register(r'entries', views.EntryViewSet, 'entries')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', obtain_auth_token),
-    path('register/', views.RegisterView.as_view({'get': 'register'}), name='register'),
+    path('register/<str:token>/', views.RegisterView.as_view({'get': 'register'}), name='register'),
 
     path('api/v1/notes/', include('notes.urls')),
 

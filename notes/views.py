@@ -16,8 +16,8 @@ from . import models
 from . import serializers
 
 class RegisterView(viewsets.ModelViewSet):
-    def register(self, request):
-        token = request.GET.get("token")
+    def register(self, request, token):
+        token = token
         response = "Invalid"
         if(token=="SPACEAPPS"):
             response = "Valid"
