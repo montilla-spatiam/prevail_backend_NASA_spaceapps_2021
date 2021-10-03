@@ -39,6 +39,10 @@ class LogListViewSet(generics.ListCreateAPIView):
     ]
     permission_classes = [IsAuthenticated]
 
+class LogDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Log.objects.all()
+    serializer_class = serializers.LogSerializer
+
 class LogViewSet(viewsets.ModelViewSet):
     queryset = models.Log.objects.all()
     serializer_class = serializers.LogSerializer
