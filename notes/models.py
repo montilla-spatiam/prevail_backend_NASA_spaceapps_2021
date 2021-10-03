@@ -114,6 +114,11 @@ class Entry(models.Model):
     image = models.CharField(max_length=1000, blank=True, null=True)
     log = models.ForeignKey('Log', blank=True, null=True, on_delete=models.CASCADE)
     tags = models.CharField(max_length=1000, blank=True, null=True)
+    data = models.CharField(max_length=1000, blank=True, null=True)
+    data_visibility = models.BooleanField(blank=True, default=False)
+
+    def delete(self):
+        super(Entry, self).delete()
 
 class Log(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

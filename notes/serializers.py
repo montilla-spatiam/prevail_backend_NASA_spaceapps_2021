@@ -99,7 +99,7 @@ class UserSerializer(serializers.ModelSerializer):
 def detect_labels_uri(uri):
     """Detects labels in the file located in Google Cloud Storage or on the
     Web."""
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/Users/montilla/Documents/Spatiam/Challenges/Nasa SpaceApps Hackathon 2021.nosync/DjangoRealTime/django-realtime-react/prevail_backend_NASA_spaceapps_2021/notes/spatiam-dtn-cloud-vision-c58c7320b237.json'
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/Users/montilla/Documents/Spatiam/Challenges/Nasa SpaceApps Hackathon 2021.nosync/DjangoRealTime/django-realtime-react/prevail_backend_NASA_spaceapps_2021/notes/cred.json'
     client = vision.ImageAnnotatorClient()
     image = vision.Image()
     image.source.image_uri = uri
